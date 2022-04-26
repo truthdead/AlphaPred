@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    <title>AlphaPred : Differentiating normal individuals from Alpha Thalassemia carriers</title>
+</head>
+<body>
+    <h3> AlphaPred : Differentiating normal individuals from alpha thalassemia carriers</h3>
+    <p><em>NOTICE : Please note that other causes of microcytic anemia (except alpha thalassemia) must be excluded before using this classifier.</em> </p>
+    <form action="/" method="post">
+        <label>Select Gender</label> <br>
+        <select name="gender" id="gender">
+            <option value="" selected disabled hidden>Choose here</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>     
+        </select><br>
+        <label>Hemoglobin concentration(g/dL)</label><br>
+        <input type="number" step="any" name="hmg" placeholder="Enter Value">
+        <br>
+        <label>Pack cell volume/hematocrit(%)</label><br>
+        <input type="number" step="any" name="pckcv" placeholder="Enter Value">
+        <br>
+        <label>Red Blood cell(x1012/L)</label><br>
+        <input type="number" step="any" name="rbc" placeholder="Enter Value">
+        <br>
+        <label>Mean Corpuscular volume(fL)</label><br>
+        <input type="number" step="any" name="mcv" placeholder="Enter Value">
+        <br>
+        <label>Mean Corpuscular hemoglobin(pg)</label><br>
+        <input type="number" step="any" name="mch" placeholder="Enter Value">
+        <br>
+        <label>Mean corpuscular hemoglobin concentration(g/L)</label><br>
+        <input type="number" step="any" name="mchc" placeholder="Enter Value">
+        <br>
+        <label>Red blood cell distribution width(%)</label><br>
+        <input type="number" step="any" name="rbcdw" placeholder="Enter Value">
+        <br>
+        <label>White blood cell count (x103/uL)</label><br>
+        <input type="number" step="any" name="wbcc" placeholder="Enter Value">
+        <br>
+        <label>Neutrophils (as a % of total white blood cells)</label><br>
+        <input type="number" step="any" name="nphils" placeholder="Enter Value">
+        <br>
+        <label>Lymphocytes (as a % of total white blood cells)</label><br>
+        <input type="number" step="any" name="lcytes" placeholder="Enter Value"> 
+        <br>
+        <label>Platelets (x103/uL)</label><br>
+        <input type="number" step="any" name="platelets" placeholder="Enter Value"> 
+        <br>
+        <label>Hemoglobin A (%)  </label><br>
+        <input type="number" step="any" name="hmga" placeholder="Enter Value">  
+        <br>
+        <label>Hemoglobin A2 (%)  </label><br>
+        <input type="number" step="any" name="hmga2" placeholder="Enter Value">  
+        
+        <br>
+        <label>Hemoglobin F (%)  </label><br>
+        <input type="number" step="any" name="hmgf" placeholder="Enter Value">  
+        <br><br><br>
+        <input type="submit">
+    </form>
+    <div>
+        <p >Prediction</p>
+
+        {% if my_pred==0 %}
+          
+           <p>Likely to be a normal individual</p>
+           <p>Please note that this is model is at experimental stage and needs to be validated using prospective data, treat results with caution</p>
+        
+        {% endif %}   
+        {% if my_pred==1 %}
+                 
+                <p>Likely to be an alpha thalassemia carrier</p>
+                <p>Please note that this is model is at experimental stage and needs to be validated using prospective data, treat results with caution</p>
+            
+     {% endif %}    
+    </div>
+</body>
+</html>
