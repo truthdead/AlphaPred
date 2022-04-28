@@ -3,6 +3,6 @@ Machine learning-based classifier pipeline (AlphaPred) that differentiates betwe
 URL of the web application built out of model 1 : https://alphaphred.herokuapp.com/
 
 Image below depicts the structure and function of AlphaPred:
-[Alphapred.png]
+![Alphapred figure](Alphapred.png)
 
 Following abstract of the research will provide a summmary of the work done :
